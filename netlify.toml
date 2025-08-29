@@ -1,21 +1,13 @@
 [build]
   publish = "dist"
   command = "npm run build"
-  environment = "NODE_VERSION=22"
 
 [build.environment]
   NODE_ENV = "production"
-  # Variables d'environnement publiques (exposées au client - safe)
   VITE_SUPABASE_PROJECT_ID = "wybhtprxiwgzmpmnfceq"
   VITE_SUPABASE_URL = "https://wybhtprxiwgzmpmnfceq.supabase.co"
   VITE_SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind5Ymh0cHJ4aXdnem1wbW5mY2VxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwMzIwODksImV4cCI6MjA2NjYwODA4OX0.ctFmwHC_iitVB16WB7lY616lIp0CAHBUGRaoi56ruqc"
 
-# Variables SENSIBLES (server-side only - configure in Netlify Dashboard)
-# ⚠️ CONFIGURER CES VALEURS DANS LE NETLIFY DASHBOARD:
-# SUPABASE_SERVICE_ROLE_KEY
-# VITE_BREVO_API_KEY
-
-# Headers de sécurité CRITIQUES
 [[headers]]
   for = "/*"
   [headers.values]
@@ -23,12 +15,9 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://wybhtprxiwgzmpmnfceq.supabase.co;"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self';"
 
-# Redirects pour SPA
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-  
