@@ -21,7 +21,7 @@ import {
   Settings,
   Play
 } from 'lucide-react';
-import { CommissionService } from '../lib/commission-service';
+import { CommissionService } from '@/lib/commission-service';
 import type {
   CommissionCalculation,
   CommissionStats,

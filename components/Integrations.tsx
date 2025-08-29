@@ -6,7 +6,7 @@ import { Label } from './ui/label'
 import { Separator } from './ui/separator'
 import { Badge } from './ui/badge'
 import { Copy, CheckCircle2, Link2, Globe, Save, Rocket, FlaskConical } from 'lucide-react'
-import { supabase, supabaseUrl } from '../lib/supabase'
+import { supabase, supabaseUrl } from '@/lib/supabase'
 
 interface SettingKV { key: string; value: string }
 

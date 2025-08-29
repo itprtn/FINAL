@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { Badge } from "./ui/badge"
 import { EmailSender } from "./EmailSender"
-import { supabase } from "../lib/supabase"
+import { supabase } from "@/lib/supabase"
 import { Mail, History, Clock } from "lucide-react"
 
 interface ProjectEmailInterfaceProps {
