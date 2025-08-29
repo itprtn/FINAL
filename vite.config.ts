@@ -2,7 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
@@ -17,20 +16,18 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Security: Enable minification and uglyfication in production
     minify: mode === 'production' ? 'terser' : false,
     terserOptions: {
       compress: {
-        drop_debugger: mode === 'production', // Remove debugger statements
+        drop_debugger: mode === 'production',
         pure_funcs: mode === 'production' ? ['console.log', 'console.warn'] : [],
       },
       mangle: {
-        safari10: true, // Handle Safari 10+ issues
+        safari10: true,
       },
     },
     rollupOptions: {
       output: {
-        // Obfuscate chunk names in production
         chunkFileNames: (chunkInfo) => {
           const facadeModuleId = chunkInfo.facadeModuleId
             ? chunkInfo.facadeModuleId.split('/').pop()?.split('.')[0] || 'chunk'
@@ -49,7 +46,7 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    cssMinify: mode === 'production', // Minify CSS in production
-    sourcemap: mode === 'development', // Source maps only in dev
+    cssMinify: mode === 'production',
+    sourcemap: mode === 'development',
   },
 }));
